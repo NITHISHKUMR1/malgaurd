@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: malware-detection
+    env: python
+    rootDir: .
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --workers 1 --threads 2 --timeout 180
+    plan: free
+    autoDeploy: true
